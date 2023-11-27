@@ -1,0 +1,33 @@
+.container {
+    width: 90%;
+    background-color: rgb(214, 207, 207);
+    height: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+  }
+  .progress {
+    height: 100%;
+    background-color: #ff3337;
+    width: 0%;
+    border-radius: 10px;
+    transition: all 1s;
+  }
+  
+  .text{
+    color: white;
+    margin-bottom:0.5em;
+    margin-left: 14em;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: large;
+    font: 300;
+
+  }
+
+
+  @media (max-width: 767px) {
+    .text{
+      margin-left: 12em;
+    }
+  }
