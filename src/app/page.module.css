@@ -98,7 +98,7 @@
   height: 50px;
   width: 75%;
   background: #00dd93;
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Gloria Hallelujah';
   color:black;
   border: none;
   margin-left: 24px;
@@ -171,9 +171,10 @@
   width: 10em;
   height: 4em;
   position: absolute;
+  color: white;
   margin-top: 2em;
   left: 1.5em;
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Gloria Hallelujah', sans-serif;
   font-size: large;
   font: 300;
 
@@ -198,7 +199,7 @@
 }
 .bulletin{
   color: white;
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Gloria Hallelujah', ;
   font-weight: 400;
   margin-top: 4em;
   margin-bottom: 4em;
@@ -222,7 +223,7 @@
   color: black;
   font: 300;
   font-size: large;
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Gloria Hallelujah';
 
 }
 .develop a{
@@ -279,6 +280,7 @@
   }
   .confirmationBox{
     height: 3em;
+    color: white;
   }
 
 }
