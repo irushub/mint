@@ -46,11 +46,13 @@ import { Fahkwang } from 'next/font/google';
 
 export default function Home() {
 
-  const network = process.env.NEXT_PUBLIC_NETWORK === 'devnet' ? WalletAdapterNetwork.Devnet :
-    process.env.NEXT_PUBLIC_NETWORK === 'testnet' ? WalletAdapterNetwork.Testnet :
-    WalletAdapterNetwork.Mainnet;
+  // const network = process.env.NEXT_PUBLIC_NETWORK === 'devnet' ? WalletAdapterNetwork.Devnet :
+  //   process.env.NEXT_PUBLIC_NETWORK === 'testnet' ? WalletAdapterNetwork.Testnet :
+  //   WalletAdapterNetwork.Mainnet;
+  const network = WalletAdapterNetwork.Devnet;
 
-  const endpoint = `https://${process.env.NEXT_PUBLIC_RPC_URL}`;
+  // const endpoint = `https://${process.env.NEXT_PUBLIC_RPC_URL}`;
+  const endpoint = "https://api.devnet.solana.com";
 
   const wallets = useMemo(
     () => [
@@ -101,7 +103,7 @@ export default function Home() {
   // retrieve item counts to determine availability and
   // from the solPayment, display cost on the Mint button
   const retrieveAvailability = async () => {
-    const cmId = process.env.NEXT_PUBLIC_CANDY_MACHINE_ID;
+    const cmId = "DUWeMsjG8B91sctTo9VF1W2HXX8UMqcbWuVy41Kx2gzz";
     if (!cmId) {
       setMintMsg("No candy machine ID found. Add environment variable.");
       return;
