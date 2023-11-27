@@ -1,104 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Gloria+Hallelujah&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+/* components/page.module.css */
 
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  gap: 1em;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0; 
-  position: relative;
-  background-color: #e4decf ;
-}
-
-.mintBtn:not(:disabled):hover {
-  background-color: #aef643;
-}
-
-.mintMsg {
-  padding: 2em;
-  border: 1px dotted;
-}
-
-.mintMsgClose {
-  float: right;
-  border-radius: 10px;
-  padding: 2px 5px;
-  border: none;
-  background-color: lightgray;
-  cursor: pointer;
-  margin-left: 1em;
-}
-.confirmationBox1 {
+.videoBackground {
   position: absolute;
-  top: 35em;
-  right: 10px;
-  border: 2px solid white;
-  background-color: #232826;
-  padding: 20px;
-  border-radius: 20px;
-  height: 5em;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.bodyStyles {
   display: flex;
   align-items: center;
-}
-.confirmationBox2 {
-  position: absolute;
-  top: 35em;
-  right: -30em;
-  border: 2px solid white;
-  background-color: #232826;
-  padding: 20px;
-  border-radius: 20px;
-  height: 5em;
-  display: flex;
-  animation: slideInOutRight 12s forwards;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
 }
 
-@keyframes slideInOutRight {
-  0% , 100% {
-    right: -20em; /* Start off-screen */
-  }
-  50% {
-    right: 10px; /* Move to the desired position and stay there */
-  }
-}
-
-.loadingtext {
-  font-weight: bold;
-} 
-
-.tickIcon {
-  width: 30px;
-  height: 30px;
-  margin-left: 1em;
-}
-.success {
-  text-align: center;
-  border-radius: 5px;
-  border: 1px solid;
-  padding: 1em;
-}
-
-.success:hover {
-  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
-}
-/*irus started coding here*/
-.walletButtonContainer {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
 .centerBox {
-  width: 25em;
-  height: 34em;
-  background-color: #232826;
+  width: 500px;
+  height: 600px;
+  background: linear-gradient(
+    50deg,
+    rgba(255, 255, 255, 0.4) 12%,
+    rgba(255, 255, 255, 0.1) 77%
+  );
+  background-blend-mode: multiply;
+  box-shadow: 0px 4px 24px 1px rgb(0, 0, 0);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   text-align: center;
-  line-height: normal;
-  border-radius: 20px;
-  margin-top: 0.5em;
+  line-height: 550px;
+  border-radius: 10px;
   position: relative;
+  margin-bottom: 10px;
+}
+
+.centerBox img {
+  width: 460px;
+  height: 380px;
+  object-fit: cover;
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  z-index: 1;
 }
 
 .buttonContainer {
@@ -109,194 +58,25 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   z-index: 2;
-  margin-bottom: 0.5em;
 }
 
-.mintBtn {
+.button {
+  width: 80%;
   height: 50px;
-  width: 75%;
-  background: #00dd93;
-  font-family: 'Gloria Hallelujah', cursive;
-  color:black;
-  border: none;
-  margin-left: 24px;
-  border-radius: 15px;
-  font-size: 15px;
-  font-weight: 600;
+  background-color: rgb(17, 192, 145)82;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
   cursor: pointer;
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
-}
-
-.mintBtn:hover {
-  color: black;
-}
-
-.mintBtn:after {
-  content: "";
-  background: #fffe00;
-  position: absolute;
-  z-index: -1;
-  left: -20%;
-  right: -20%;
-  top: 0;
-  bottom: 0;
-  transform: skewX(-45deg) scale(0, 1);
-  transition: all 0.5s;
-}
-
-.mintBtn:hover:after {
-  transform: skewX(-45deg) scale(1, 1);
-  transition: all 0.5s;
-}
-
-.image{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-
-
-.centerBox img {
-  height: 300px;
-  object-fit: cover;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-
-.contentContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.progressbar {
-  width: 24em;
-  margin-top: 2em;
-  margin-right: auto;
-  margin-bottom: auto;
-  margin-left: 1.8em;
-  position: relative;
-}
-.percentage{
-  width: 10em;
-  height: 4em;
-  position: absolute;
-  margin-top: 2em;
-  left: 1.5em;
-  font-family: 'Gloria Hallelujah', cursive;
-  font-size: large;
-  font: 300;
-
-}
-.logoContainer {
-  text-align: center;
-  width: 100%;
-  margin-top: 0; 
-}
-
-.logo {
-  width: 100%; 
-  max-width: 600px;
-  height: 80%;
-  margin-top: 2em;
-}
-.title{
-  margin-bottom: 1em;
-}
-.b{
-  margin-bottom: 1em;
-}
-.bulletin{
-  color: white;
-  font-family: 'Gloria Hallelujah', cursive;
-  font-weight: 400;
-  margin-top: 4em;
-  margin-bottom: 4em;
-}
-
-.sectionBox{ 
-  padding: 20px;
-  border-radius: 20px;
-  background-color: #232826;
-  margin-top: 5em;
-  width: 56em;
-
-}
-.mobileSectionBox{
-  display : none;
-}
-.develop{
-  bottom: 1em;
-  right: 1em;
-  position: absolute;
-  color: black;
-  font: 300;
-  font-size: large;
-  font-family: 'Gloria Hallelujah', cursive;
-
-}
-.develop a{
-  text-decoration: underline;
-  color: red;
-}
-@media (max-width: 767px) {
-  .centerBox {
-    height: 30em;
-    width: 20em;
-    margin-top: 5em;
-  }
-  .centerBox img {
-    top: 30%;
-    height: 15em;
-    width: 15em;
-  }
-  .logoContainer {
-    display: none;
-  }
-  .secondpage{
-    display: none;
-  }
-  .bulletin{
-    margin-bottom: 4em;
-  }
-  .develop{
-    margin-top: 5em;
-    color: black;
-
-  }
-  .progressbar {
-    width: 18em;
-    margin-top: 2em;
-    margin-right: auto;
-    margin-bottom: auto;
-    margin-left: 2em;
-  }
-  .percentage{
-    display: flex;
-    position: absolute;
-    margin-top: 2em;
-    font-size: medium;
-    font: 150;
-  }
-  .sectionBox{
-    display: none;
-  }
-  .mobileSectionBox{
-    display: block;
-    background-color: #232826;
-    margin-bottom: 3em;
-
-  }
-  .confirmationBox{
-    height: 3em;
-  }
-
+  margin-left: 24px;
 }
