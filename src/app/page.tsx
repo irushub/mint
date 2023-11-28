@@ -49,10 +49,10 @@ export default function Home() {
   // const network = process.env.NEXT_PUBLIC_NETWORK === 'devnet' ? WalletAdapterNetwork.Devnet :
   //   process.env.NEXT_PUBLIC_NETWORK === 'testnet' ? WalletAdapterNetwork.Testnet :
   //   WalletAdapterNetwork.Mainnet;
-  const network = WalletAdapterNetwork.Devnet;
+  const network = WalletAdapterNetwork.Mainnet;
 
   // const endpoint = `https://${process.env.NEXT_PUBLIC_RPC_URL}`;
-  const endpoint = "https://api.devnet.solana.com";
+  const endpoint = "https://mainnet.helius-rpc.com/?api-key=5bd6702f-4c9a-4ba7-a929-4ef0ca0947fb";
 
   const wallets = useMemo(
     () => [
@@ -95,15 +95,15 @@ export default function Home() {
   const [mintDisabled5, setMintDisabled5] = useState<boolean>(true);
   const [mintDisabled10, setMintDisabled10] = useState<boolean>(true);
   const [mintDisabled20, setMintDisabled20] = useState<boolean>(true);
-  const [guard,setGuard] = useState<PublicKey>(publicKey("HNi8oNj8t6uw6ijhfMsXZrshbbRPDGiU1yHRUhEuQiTt"));
-  const [toWallet,setToWallet] = useState<PublicKey>(publicKey("Cd21DttDmnDmW2qxAvTXv5csfVdDT1zrLSHnWsXSqfwg"));
+  const [guard,setGuard] = useState<PublicKey>(publicKey("2YRyhFst1WhWUE99DpdBr2SFsymaJ3kE8h8498ApRG5i"));
+  const [toWallet,setToWallet] = useState<PublicKey>(publicKey("Cqtx5F5enxYU3Jg6XLcGxECT11VH9pXj3SeeEcN9Ayov"));
   const [balanceInsuff,setBalanceInsuff] = useState<boolean>(false);
   const [mintOver,setMintOver] = useState<boolean>(false);
 
   // retrieve item counts to determine availability and
   // from the solPayment, display cost on the Mint button
   const retrieveAvailability = async () => {
-    const cmId = "DUWeMsjG8B91sctTo9VF1W2HXX8UMqcbWuVy41Kx2gzz";
+    const cmId = "Ds44EaBAu1sW9pgJ1jbd3Qts5ru8GY4TghUaajZtJS8q";
     if (!cmId) {
       setMintMsg("No candy machine ID found. Add environment variable.");
       return;
@@ -232,17 +232,6 @@ export default function Home() {
         setLoading(false);
       }
     };
-  
-    // if (mintCreated) {
-    //   return (
-    //     <a className={styles.success} target="_blank" rel="noreferrer"
-    //       href={`https://solscan.io/token/${base58PublicKey(mintCreated)}${network === 'devnet' ? '?cluster=devnet' : ''}`}>
-    //       <p className="mintAddress">
-    //         <code>{base58PublicKey(mintCreated)}</code>
-    //       </p>
-    //     </a>
-    //   );
-    // }
 
     return (
       <>          
@@ -284,12 +273,12 @@ export default function Home() {
 
       //wallet balance check
       const balance: SolAmount = await umi.rpc.getBalance(umi.identity.publicKey);
-      if (Number(balance.basisPoints) / 1000000000 < costInSol || countRemaining < 1) {
+      if (Number(balance.basisPoints) / 1000000000 < (costInSol*5) || countRemaining < 5) {
         setBalanceInsuff(true);
         return (
           <>          
-            <button onClick={mintBtnHandler5} className={styles.mintBtn} disabled={mintDisabled1 || loading}>
-              MINT<br/>
+            <button onClick={mintBtnHandler5} className={styles.mintBtn} disabled={mintDisabled5 || loading}>
+              MINT 5<br/>
             </button>
             
           </> 
@@ -375,17 +364,6 @@ export default function Home() {
         setLoading(false);
       }
     };
-  
-    // if (mintCreated) {
-    //   return (
-    //     <a className={styles.success} target="_blank" rel="noreferrer"
-    //       href={`https://solscan.io/token/${base58PublicKey(mintCreated)}${network === 'devnet' ? '?cluster=devnet' : ''}`}>
-    //       <p className="mintAddress">
-    //         <code>{base58PublicKey(mintCreated)}</code>
-    //       </p>
-    //     </a>
-    //   );
-    // }
 
     return (
       <>          
@@ -427,12 +405,12 @@ export default function Home() {
       
       //wallet balance check
       const balance: SolAmount = await umi.rpc.getBalance(umi.identity.publicKey);
-      if (Number(balance.basisPoints) / 1000000000 < costInSol || countRemaining < 1) {
+      if (Number(balance.basisPoints) / 1000000000 < (costInSol*10) || countRemaining < 10) {
         setBalanceInsuff(true);
         return (
           <>          
             <button onClick={mintBtnHandler10} className={styles.mintBtn} disabled={mintDisabled1 || loading}>
-              MINT<br/>
+              MINT 10<br/>
             </button>
             
           </> 
@@ -517,17 +495,6 @@ export default function Home() {
         setLoading(false);
       }
     };
-  
-    // if (mintCreated) {
-    //   return (
-    //     <a className={styles.success} target="_blank" rel="noreferrer"
-    //       href={`https://solscan.io/token/${base58PublicKey(mintCreated)}${network === 'devnet' ? '?cluster=devnet' : ''}`}>
-    //       <p className="mintAddress">
-    //         <code>{base58PublicKey(mintCreated)}</code>
-    //       </p>
-    //     </a>
-    //   );
-    // }
 
     return (
       <>          
@@ -570,13 +537,13 @@ export default function Home() {
         console.log("errortop");
       //wallet balance check
       const balance: SolAmount = await umi.rpc.getBalance(umi.identity.publicKey);
-      if (Number(balance.basisPoints) / 1000000000 < costInSol || countRemaining < 1) {
+      if (Number(balance.basisPoints) / 1000000000 < (costInSol*20) || countRemaining < 20) {
         setBalanceInsuff(true);
         
         return (
           <>          
             <button onClick={mintBtnHandler20} className={styles.mintBtn} disabled={mintDisabled1 || loading}>
-              MINT<br/>
+              MINT 20<br/>
             </button>
             
           </> 
@@ -663,16 +630,6 @@ export default function Home() {
       }
     };
   
-    // if (mintCreated) {
-    //   return (
-    //     <a className={styles.success} target="_blank" rel="noreferrer"
-    //       href={`https://solscan.io/token/${base58PublicKey(mintCreated)}${network === 'devnet' ? '?cluster=devnet' : ''}`}>
-    //       <p className="mintAddress">
-    //         <code>{base58PublicKey(mintCreated)}</code>
-    //       </p>
-    //     </a>
-    //   );
-    // }
 
     return (
       <>          
